@@ -55,7 +55,7 @@ for _, v in ipairs(fs.readdirSync(filePath)) do
 		local classList = parse(lines)
 
 		for name in pairs(classList) do
-			local fd = fs.openSync(path.join(out, name .. '.md'), 'w')
+			local fd = fs.openSync(path.join(out, name:lower() .. '.md'), 'w')
 			fs.writeSync(fd, 0, docs[name])
 			fs.closeSync(fd)
 		end
